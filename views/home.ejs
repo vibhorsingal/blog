@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            padding: 20px
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('partials/navbar.ejs') %>
+    <hr style="border: solid grey 2px;">
+    <div class="container">
+        
+        <div id="blogs" style="padding-left: 30px;">
+            <h2 style="margin-top: 0;">Recent Blogs</h2>
+            <% for (let blog of blogs) {%>
+                <div class="blog">
+                    <b>
+                        <%=blog.title%>
+                    </b>
+                    <div>
+                        <%=blog.body %>
+                    </div>
+                    <a href="/delete/<%=blog._id%> ">Delete</a>
+                    <a href="/update/<%=blog._id%>" style="float: right;">update</a>
+                </div>
+                <%}%>
+        </div>
+    </div>
+</body>
+
+</html>
